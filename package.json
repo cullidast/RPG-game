@@ -1,0 +1,37 @@
+{
+  "name": "rpg-game",
+  "version": "1.0.0",
+  "description": "A project for a school RPG game using Babel and ESLint.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+github.com"
+  },
+  "keywords": [
+    "rpg",
+    "game",
+    "skillbox"
+  ],
+  "author": "Ваше Имя",
+  "license": "ISC",
+  "bugs": {
+    "url": "github.com"
+  },
+  "homepage": "github.com"
+  ,
+  "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
+    "core-js": "^3.36.0",
+    "eslint": "^9.0.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "globals": "^15.0.0"
+  }
+}
