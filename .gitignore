@@ -1,5 +1,11 @@
-# Dependencies
-/node_modules
+# Зависимости Node
+node_modules/
+package-lock.json
+npm-debug.log*
 
-# Distribution
+# Папка сборки Webpack
 /dist
+
+# Файлы конфигурации и системные файлы
+.DS_Store
+.vscode/

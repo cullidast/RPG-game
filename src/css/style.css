@@ -1,0 +1,6 @@
+/* src/css/style.css */
+body {
+    color: #999; /* Цвет текста станет серым */
+    font-family: sans-serif;
+    padding: 20px;
+}
