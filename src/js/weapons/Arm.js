@@ -1,3 +1,6 @@
-import { Weapon } from './Weapon.js'; 
-
-export class Arm extends Weapon {}
+import { Weapon } from './Weapon.js';
+export class Arm extends Weapon {
+    constructor() {
+        super('Рука', 1, Infinity, 1); // Бесконечная прочность, минимальный урон
+    }
+}

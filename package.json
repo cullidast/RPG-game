@@ -1,10 +1,12 @@
+
 {
   "name": "rpg-game",
   "version": "1.0.0",
   "description": "A project for a school RPG game using Babel and ESLint.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "build": "webpack --mode production",
     "lint": "eslint .",
     "start": "webpack serve --open",
@@ -36,9 +38,20 @@
     "eslint-plugin-import": "^2.29.1",
     "globals": "^15.0.0",
     "html-webpack-plugin": "^5.6.5",
+    "jest": "^30.2.0",
     "mini-css-extract-plugin": "^2.9.4",
     "webpack": "^5.104.0",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"
+  },
+  "jest": {  
+    "coverageThreshold": {
+      "global": {
+        "lines": 70,
+        "branches": 70,
+        "functions": 70,
+        "statements": 70
+      }
+    }
   }
 }
