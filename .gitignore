@@ -9,3 +9,10 @@ npm-debug.log*
 # Файлы конфигурации и системные файлы
 .DS_Store
 .vscode/
+
+# Отчеты о покрытии тестов Jest (ДОБАВЛЕНО)
+coverage/
+clover.xml
+lcov.info
+lcov-report/
+coverage-final.json
