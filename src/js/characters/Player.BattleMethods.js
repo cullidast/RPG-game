@@ -1,21 +1,22 @@
 import { Player } from './Player.js';
+import { logToHtml } from '../utils.js'
 
 // --- Методы боя и ИИ, добавленные к прототипу Player ---
 Player.prototype.takeAttack = function(damage) {
-    console.log(`> ${this.name} готовится принять ${damage.toFixed(1)} урона...`);
+    logToHtml(`> ${this.name} готовится принять ${damage.toFixed(1)} урона...`);
     
     if (this.isAttackBlocked()) {
-        console.log(`> ${this.name} блокирует удар! Урон по оружию.`);
+        logToHtml(`> ${this.name} блокирует удар! Урон по оружию.`);
         this.weapon.takeDamage(damage); 
         return;
     }
 
     if (this.dodged()) {
-        console.log(`> ${this.name} уклоняется от удара!`);
+        logToHtml(`> ${this.name} уклоняется от удара!`);
         return;
     }
     
-    console.log(`> ${this.name} получает ${damage.toFixed(1)} урона в жизнь.`);
+    logToHtml(`> ${this.name} получает ${damage.toFixed(1)} урона в жизнь.`);
     this.takeDamage(damage); 
 };
 
@@ -23,10 +24,10 @@ Player.prototype.takeAttack = function(damage) {
 
 Player.prototype.tryAttack = function(enemy) {
     const distance = Math.abs(this.position - enemy.position);
-    console.log(`\n${this.name} (Pos: ${this.position}) пытается атаковать ${enemy.name} (Pos: ${enemy.position}) на дистанции ${distance.toFixed(1)}.`);
+    logToHtml(`\n${this.name} (Pos: ${this.position}) пытается атаковать ${enemy.name} (Pos: ${enemy.position}) на дистанции ${distance.toFixed(1)}.`);
 
     if (distance > this.weapon.range) {
-        console.log(`> ${this.name} не достает до цели. Атака провалена.`);
+        logToHtml(`> ${this.name} не достает до цели. Атака провалена.`);
         return;
     }
     
@@ -37,7 +38,7 @@ Player.prototype.tryAttack = function(enemy) {
     let damage = this.getDamage(distance);
 
     if (distance === 0) {
-        console.log(`> ${this.name} бьет вплотную! Урон удвоен, цель отскакивает.`);
+        logToHtml(`> ${this.name} бьет вплотную! Урон удвоен, цель отскакивает.`);
         damage *= 2; 
         enemy.takeAttack(damage);
         enemy.moveRight(1); 
@@ -46,7 +47,7 @@ Player.prototype.tryAttack = function(enemy) {
     }
     
     if (enemy.isDead()) {
-        console.log(`>>> ${enemy.name} повержен! <<<`);
+        logToHtml(`>>> ${enemy.name} повержен! <<<`);
     }
 };
 
@@ -65,11 +66,11 @@ Player.prototype.moveToEnemy = function(enemy) {
 
 Player.prototype.turn = function(players) {
     if (this.isDead()) return;
-    console.log(`\n--- Ход игрока: ${this.name} ---`);
+    logToHtml(`\n--- Ход игрока: ${this.name} ---`);
     
     const enemy = this.chooseEnemy(players);
     if (!enemy) {
-        console.log(`> ${this.name}: Врагов не осталось. Конец игры.`);
+        logToHtml(`> ${this.name}: Врагов не осталось. Конец игры.`);
         return;
     }
 

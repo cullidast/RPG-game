@@ -5,13 +5,14 @@ describe('Weapon Class', () => {
 
     beforeEach(() => {
         // name, attack, durability, range
-        weapon = new Weapon('Тестовый меч', 20, 100, 1);
+        // Устанавливаем изначальную прочность 100 для тестов
+        weapon = new Weapon('Тестовый меч', 20, 100, 1); 
     });
 
     test('should initialize with correct properties', () => {
         expect(weapon.name).toBe('Тестовый меч');
         expect(weapon.attack).toBe(20);
-        expect(weapon.durability).toBe(100);
+        expect(weapon.durability).toBe(100); // 
         expect(weapon.range).toBe(1);
     });
 
@@ -35,13 +36,14 @@ describe('Weapon Class', () => {
     });
 
     test('getDamage should return full attack power when durability is high', () => {
-        expect(weapon.getDamage()).toBe(20);
+        // При прочности 100 и атаке 20, 30% порог = 30.
+        expect(weapon.getDamage()).toBe(20); // <-- Ожидаем 20 урона
     });
 
     test('getDamage should return half attack power when durability is low (< 30%)', () => {
-        weapon.takeDamage(71); // Durability becomes 29 (below 30%)
+        weapon.takeDamage(71); // Durability becomes 29 (ниже 30%)
         expect(weapon.durability).toBe(29);
-        expect(weapon.getDamage()).toBe(10); // Half damage
+        expect(weapon.getDamage()).toBe(10); // Половина урона (20 / 2)
     });
 
     test('getDamage should return 0 when broken', () => {

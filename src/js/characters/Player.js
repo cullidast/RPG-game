@@ -1,3 +1,4 @@
+import { logToHtml } from '../utils.js'
 export class Player {
     // в конструктор передаем name и position — имя персонажа, позицию, расстояние для расчета урона
     constructor(position, name) {
@@ -69,7 +70,7 @@ export class Player {
     moveLeft(distance) {
         const moveAmount = Math.min(distance, this.speed);
         this.position -= moveAmount;
-        console.log(`${this.name} сместился влево на ${moveAmount} делений. Позиция: ${this.position}`);
+        logToHtml(`${this.name} сместился влево на ${moveAmount} делений. Позиция: ${this.position}`);
     }
 
     moveRight(distance) {

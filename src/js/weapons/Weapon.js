@@ -21,7 +21,7 @@ export class Weapon {
         }
 
         // Вычисляем значение 30% от изначальной прочности
-        const durabilityThreshold = this.initDurability * 0.3; // Используем initDurability
+        const durabilityThreshold = this.initialDurability * 0.3; // Используем initDurability
 
         if (this.durability >= durabilityThreshold) { 
             // Если прочность 30% или выше, выдаем полную атаку

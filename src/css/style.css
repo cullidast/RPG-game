@@ -1,6 +1,21 @@
-/* src/css/style.css */
 body {
-    color: #999; /* Цвет текста станет серым */
     font-family: sans-serif;
-    padding: 20px;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+#game-log {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 400px;
+    overflow-y: scroll; /* Делает лог прокручиваемым */
+    background-color: #fff;
+    white-space: pre-wrap; /* Сохраняет переносы строк и пробелы из JS */
+    font-family: monospace; /* Используем моноширинный шрифт для лучшего отображения лога */
+}
+
+.game-message {
+    margin: 0;
+    padding: 3px 0;
+    border-bottom: 1px solid #eee;
 }

@@ -2,12 +2,13 @@ import { Archer } from './characters/Archer.js';
 import { Warrior } from './characters/Warrior.js';
 import { Mage } from './characters/Mage.js';
 import { Dwarf } from './characters/Dwarf.js';
-// Исправлена синтаксическая ошибка (= заменен на from)
 import { Crossbowman } from './characters/Crossbowman.js';
 import { Demiurge } from './characters/Demiurge.js';
 
+import { logToHtml } from './utils.js';
+
 export function play() {
-    console.log('--- БИТВА НАЧИНАЕТСЯ ---');
+    logToHtml('--- БИТВА НАЧИНАЕТСЯ ---');
 
     // 1. Создание участников с начальными позициями и именами
     const players = [
@@ -23,7 +24,7 @@ export function play() {
 
     // 2. Основной цикл игры: пока живых игроков больше одного
     while (players.filter(p => !p.isDead()).length > 1) {
-        console.log(`\n=== РАУНД ${round} ===`);
+        logToHtml(`\n=== РАУНД ${round} ===`);
         
         // Перемешиваем игроков перед каждым раундом для случайной очередности хода
         players.sort(() => Math.random() - 0.5);
@@ -40,7 +41,7 @@ export function play() {
         
         // Предохранитель, чтобы цикл не стал бесконечным
         if (round > 100) {
-            console.log('Превышено максимальное количество раундов (100). Остановка игры.');
+            logToHtml('Превышено максимальное количество раундов (100). Остановка игры.');
             break; 
         }
     }
@@ -49,8 +50,8 @@ export function play() {
     const winner = players.find(p => !p.isDead());
     
     if (winner) {
-        console.log(`\n🏆 ПОБЕДИТЕЛЬ: ${winner.name} (${winner.description}) 🏆`);
+        logToHtml(`\n🏆 ПОБЕДИТЕЛЬ: ${winner.name} (${winner.description}) 🏆`);
     } else {
-        console.log('\nНикто не выжил в этой битве.');
+        logToHtml('\nНикто не выжил в этой битве.');
     }
 }
