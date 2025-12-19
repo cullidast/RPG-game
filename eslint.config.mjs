@@ -1,10 +1,9 @@
-import js from "@eslint/js";
-import airbnbBase from 'eslint-config-airbnb-base';
-import globals from "globals";
+// eslint.config.mjs
+import js from '@eslint/js';
+import globals from 'globals';
 
 export default [
   js.configs.recommended,
-  airbnbBase,
   {
     languageOptions: {
         globals: {
@@ -13,10 +12,18 @@ export default [
         }
     },
     rules: {
-      // Пример правила: Airbnb запрещает console.log, мы разрешаем для задания
-      "no-console": "off",
-      // Пример правила: Airbnb использует одинарные кавычки по умолчанию, мы приводим к ним весь код
-      "quotes": ["error", "single"]
+      'no-console': 'off',
+      'quotes': ['error', 'single']
     }
+  },
+  // Конфигурация для тестовых файлов Jest
+  {
+      files: ['**/*.test.js'],
+      languageOptions: {
+          globals: globals.jest // Подключаем глобальные переменные Jest
+      },
+      rules: {
+          'no-undef': 'off', // Отключаем ошибку "не определено" для test/expect/describe
+      }
   }
 ];

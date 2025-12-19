@@ -7,21 +7,28 @@ export class Weapon {
         this.range = range;
     }
 
-    takeDamage(amount) {
-        this.durability -= amount;
+    takeDamage(damage) {
+        this.durability -= damage;
         if (this.durability < 0) {
             this.durability = 0;
         }
     }
 
-    getDamage() {
-        if (this.isBroken()) {
+   getDamage() {
+        if (this.durability <= 0) {
+            // При прочности 0 или меньше, урон равен 0
             return 0;
         }
-        if (this.durability >= (this.initialDurability * 0.3)) { // 30% и выше прочности
+
+        // Вычисляем значение 30% от изначальной прочности
+        const durabilityThreshold = this.initDurability * 0.3; // Используем initDurability
+
+        if (this.durability >= durabilityThreshold) { 
+            // Если прочность 30% или выше, выдаем полную атаку
             return this.attack;
         }
-        // Если прочность ниже 30%, урон уменьшается вдвое
+        
+        // В противном случае (если прочность ниже 30%), урон уменьшается вдвое
         return this.attack / 2;
     }
 
