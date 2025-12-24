@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  // Точка входа: исправленный путь, который соответствует вашей структуре папок (внутри папки js)
+  // Точка входа
   entry: './src/js/index.js',
 
   output: {
@@ -37,5 +37,5 @@ module.exports = {
   ],
   
   // Режим сборки: development или production
-  mode: 'production', // Я изменил на production, как вы запрашивали в первой команде
+  mode: 'production', 
 };
