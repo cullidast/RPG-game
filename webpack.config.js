@@ -27,7 +27,7 @@ module.exports = {
   plugins: [
     // Плагин для автоматической генерации index.html из шаблона
     new HtmlWebpackPlugin({
-      template: './src/index.html', // Убедитесь, что src/index.html существует
+      template: './src/index.html', 
       filename: 'index.html',
     }),
     // Плагин для извлечения CSS в отдельный файл (используя имя файла style.css)
